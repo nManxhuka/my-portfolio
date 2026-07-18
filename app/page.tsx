@@ -1,14 +1,8 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-
-const projects = [
-  { number: "01", title: "Silent AI", type: "Enterprise AI platform", description: "Knowledge management, AI chat, connectors, and data orchestration." },
-  { number: "02", title: "Allam", type: "Android app", description: "A mobile application designed to enhance productivity and user engagement." },
-  { number: "03", title: "KODE OS", type: "Enterprise platform", description: "Facility management with smart dashboards and a mobile app." },
-  { number: "04", title: "JamOrder", type: "Restaurant platform", description: "Restaurant ordering and POS with a seamless user experience." },
-  { number: "05", title: "Locum Tenens Platform", type: "Healthcare platform", description: "Healthcare staffing connecting nurses and medics with job opportunities." },
-];
+import Link from "next/link";
+import { projects } from "@/lib/projects";
 
 const skills = ["Product design", "UX design", "UI design", "User research", "Information architecture", "Design systems", "AI product design", "Prompt engineering"];
 
@@ -73,7 +67,7 @@ export default function Home() {
 
         <section id="work" className="section work" aria-labelledby="work-title">
           <div className="section-heading"><p className="section-number">03 / Selected work</p><h2 id="work-title">Things made<br />with <em>intention.</em></h2></div>
-          <div className="project-list">{projects.map((project) => <article className="project-card" key={project.number}><div className="card-top"><span>{project.number}</span><span>{project.type}</span></div><div className="card-main"><h3>{project.title}</h3><p>{project.description}</p></div><span className="card-link muted-link">Project link not provided</span></article>)}</div>
+          <div className="project-list">{projects.map((project) => <article className="project-card" key={project.number}><Link className="project-card-link" href={`/projects/${project.slug}`}><div className="card-top"><span>{project.number}</span><span>{project.category}</span></div><div className="card-main"><h3>{project.title}</h3><p>{project.description}</p></div><span className="card-link">View case study <Arrow /></span></Link></article>)}</div>
         </section>
 
         <section className="section background" aria-labelledby="background-title">

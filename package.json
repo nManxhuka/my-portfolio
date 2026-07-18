@@ -10,15 +10,16 @@
   },
   "dependencies": {
     "@next/third-parties": "latest",
+    "framer-motion": "^12.42.2",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "latest",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "@tailwindcss/postcss": "latest",
     "autoprefixer": "latest",
     "eslint": "^9.21.0",
     "eslint-config-next": "latest",
