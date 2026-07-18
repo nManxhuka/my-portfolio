@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import type { Project } from "@/lib/projects";
 import { getNarrative, type CaseStudyNarrative, type Feature } from "@/lib/case-studies";
@@ -19,6 +20,7 @@ export function AnimatedSection({ children, className = "" }: { children: React.
 }
 
 export function LaptopMockup({ project }: { project: Project }) {
+  if (project.heroImage) return <div className="hero-laptop-stage"><div className="laptop laptop-with-image" style={{ "--project-accent": project.accent } as React.CSSProperties}><div className="laptop-screen"><Image src={project.heroImage} alt={`${project.title} dataset library interface`} fill priority unoptimized sizes="(max-width: 700px) 100vw, 70vw" /></div><div className="laptop-base" /></div></div>;
   return <div className="laptop" style={{ "--project-accent": project.accent } as React.CSSProperties}><div className="laptop-screen"><span className="screen-dot" /><span className="screen-line long" /><span className="screen-line" /><div className="screen-panel"><span>Screenshot placeholder</span><strong>{project.title}</strong></div><div className="screen-grid"><i /><i /><i /></div></div><div className="laptop-base" /></div>;
 }
 

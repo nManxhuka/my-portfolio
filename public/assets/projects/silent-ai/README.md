@@ -3,6 +3,7 @@
 The case study is ready for these image exports. Replace each corresponding mockup in `components/case-study/index.tsx` when an image is available:
 
 - `hero.webp`
+- `active-datasets.png` — current hero screenshot
 - `design-process.webp`
 - `dashboard-overview.webp`
 - `dataset-management.webp`
