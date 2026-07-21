@@ -8,7 +8,7 @@ export type Feature = {
   screenshot?: string;
   secondaryScreenshot?: string;
   layout?: "split" | "centered";
-  presentation?: "laptop" | "floating-card" | "multi-screen" | "editorial" | "devices" | "desktop" | "research" | "persona" | "architecture" | "style-guide";
+  presentation?: "laptop" | "floating-card" | "multi-screen" | "editorial" | "devices" | "desktop" | "research" | "persona" | "architecture" | "style-guide" | "allam-journey";
   variant: "wide" | "portrait" | "split";
 };
 
@@ -18,10 +18,12 @@ export type CaseStudyNarrative = {
   challenge: string[];
   roleCards: string[];
   processSteps: string[];
+  processIntro?: string;
   features: Feature[];
   designSystem: string;
   designSystemItems: string[];
   outcomes: string[];
+  overviewCards?: { title: string; text: string }[];
   headings?: Partial<Record<"overview" | "challenge" | "role" | "process" | "designSystem" | "results", [string, string]>>;
   processArtifacts?: { research: string; persona: string; sitemap: string };
 };
@@ -40,6 +42,7 @@ export const silentAiNarrative: CaseStudyNarrative = {
   ],
   roleCards: ["UX Strategy", "Interaction Design", "Design System", "Developer Collaboration", "Enterprise Workflows", "Material Design 3"],
   processSteps: ["Research", "Problem Definition", "User Flows", "Wireframes", "Prototypes", "Developer Handoff"],
+  processIntro: "Each phase gave the team a shared way to turn enterprise complexity into decisions that could be tested, implemented, and scaled.",
   features: [
     { title: "Dataset management", problem: "Knowledge sources needed to be grouped, governed, and made useful to assistants without turning setup into a technical maze.", solution: "Dataset workflows make source relationships, processing state, and next actions explicit—helping teams curate trusted retrieval foundations.", image: "dataset-management.webp", screenshot: "/assets/projects/silent-ai/dataset-management-queue.png", variant: "split", presentation: "floating-card" },
     { title: "Scheduler", problem: "Keeping knowledge current requires recurring operations, but scheduling should not feel like configuring infrastructure.", solution: "The scheduler translates recurring work into an approachable flow with clear timing, scope, and confirmation states.", image: "scheduler.webp", screenshot: "/assets/projects/silent-ai/scheduler-week-view.png", variant: "wide", layout: "centered" },
@@ -64,6 +67,7 @@ export const kodeOsNarrative: CaseStudyNarrative = {
   ],
   roleCards: ["UX Research", "Information Architecture", "User Flows", "Interaction Design", "Visual Design", "Responsive Product Design"],
   processSteps: ["Research", "Problem Definition", "User Persona", "Site Map", "Wireframes", "Prototype", "Developer Handoff"],
+  processIntro: "Each phase gave the team a shared way to turn enterprise complexity into decisions that could be tested, implemented, and scaled.",
   processArtifacts: {
     research: "/assets/projects/kode-os/research.jpg",
     persona: "/assets/projects/kode-os/user-persona.jpg",
@@ -89,8 +93,49 @@ export const kodeOsNarrative: CaseStudyNarrative = {
   }
 };
 
+export const allamNarrative: CaseStudyNarrative = {
+  introduction: "Allam makes advanced AI capabilities feel approachable through a familiar Android experience—bringing conversation, voice, discovery, and trusted service flows into one connected product.",
+  overview: [
+    "Allam is an Android AI assistant designed to help people interact with AI through chat, voice, prompt templates, image generation, guided prompts, and personalised settings.",
+    "The product brings together everyday assistance and guided service experiences in one mobile environment. Users can start with an open question, choose a useful template, continue a saved conversation, or move into a more focused interaction when the task calls for it."
+  ],
+  overviewCards: [
+    { title: "What it is", text: "A mobile AI assistant that combines chat, voice, discovery, and guided experiences in a single Android product." },
+    { title: "Who it’s for", text: "People who want a clear, approachable way to use AI for everyday questions, exploration, and service-related tasks." },
+    { title: "Why it matters", text: "It turns a broad set of AI capabilities into understandable starting points instead of asking users to know what to prompt first." }
+  ],
+  challenge: [
+    "AI products can feel powerful but unpredictable. The experience needed to create clear entry points without reducing the flexibility of open conversation—and make voice, chat, templates, and generated content feel like parts of the same product rather than separate tools.",
+    "Conversation history also needed to remain useful as it grew. Templates had to reveal what the assistant could do, while government-service experiences required trust, clarity, and focus. Across every surface, the Android experience needed a consistent interaction language."
+  ],
+  roleCards: ["Product Design", "Android UX", "Interaction Design", "Voice Experience", "Conversation Design", "Design System", "Prototyping", "Developer Handoff"],
+  processSteps: ["Research", "Problem Definition", "User Flows", "Wireframes", "Prototypes", "Developer Handoff"],
+  processIntro: "The process turned a broad set of AI capabilities into clear entry points, connected journeys, and interaction patterns that could carry across Android surfaces.",
+  features: [
+    { title: "Product experience overview", problem: "Users need to move naturally between starting a conversation, exploring capabilities, navigating saved work, and managing their account.", solution: "The product ecosystem establishes a coherent mobile foundation across the start page, navigation, discovery, and personal settings—so each surface feels connected to the next.", image: "allam-product-journey.png", screenshot: "/assets/projects/allam/allam-product-journey.png", variant: "wide", presentation: "allam-journey", layout: "centered" },
+    { title: "AI chat experience", problem: "A blank chat canvas can leave users uncertain about where to begin, while richer responses and image generation can interrupt the flow if they feel bolted on.", solution: "Guided prompts, category-led starts, response actions, and in-conversation media create a flexible journey between open-ended questions and structured assistance.", image: "allam-chat", variant: "split", presentation: "editorial" },
+    { title: "Voice experience", problem: "Voice interaction needs to communicate exactly what the assistant is doing—listening, processing, paused, or speaking—without distracting from the conversation.", solution: "Clear state feedback and large, recoverable controls make spoken interaction easier to start, understand, interrupt, and resume.", image: "allam-voice", variant: "split", presentation: "editorial" },
+    { title: "Discoverability and templates", problem: "Users should not need to understand every AI capability before they can benefit from it.", solution: "Templates and categories provide guided starting points, helping people explore general and domain-specific tasks with less uncertainty.", image: "allam-discovery", variant: "wide", presentation: "editorial" },
+    { title: "Conversation management", problem: "Long histories can become difficult to scan, retrieve, and return to—especially when people rely on AI for recurring work.", solution: "Navigation, search, recents, grouping, and pinned conversations create an organised history without overwhelming the primary experience.", image: "allam-conversations", variant: "split", presentation: "editorial" },
+    { title: "Profile and personalization", problem: "People need meaningful control over their AI experience, preferences, data, and conversation history.", solution: "Profile settings surface personalisation, data controls, general settings, and account actions as clear, manageable decisions.", image: "allam-profile", variant: "portrait", presentation: "editorial" },
+    { title: "Trusted authentication", problem: "Public-sector and government-related experiences need to feel trustworthy without becoming intimidating or overloaded.", solution: "A focused sign-up flow keeps the task clear and reduces distraction around a sensitive moment in the product journey.", image: "allam-nafath", variant: "portrait", presentation: "editorial", layout: "centered" }
+  ],
+  designSystem: "The Allam design system uses Material Design 3 as a consistent Android foundation across chat, voice, discovery, settings, and authentication. A shared set of dark surfaces, app bars, navigation patterns, cards, controls, chips, and states lets varied AI interactions still feel recognisably part of one product.",
+  designSystemItems: ["Dark surfaces", "Top app bars", "Navigation drawer", "Cards", "Chat bubbles", "Buttons", "Text fields", "Chips", "Status states", "Spacing tokens", "Typography", "Icons"],
+  outcomes: ["Unified chat, voice, discovery, and account experiences into a connected mobile product.", "Created consistent interaction patterns across multiple AI capabilities.", "Improved discoverability through templates and guided prompts.", "Established reusable Android patterns for future product growth.", "Made complex AI features feel more approachable through clear, focused flows."],
+  headings: {
+    overview: ["An approachable way", "into AI."],
+    challenge: ["Many ways to interact.", "One clear experience."],
+    role: ["Designing the mobile", "AI experience."],
+    process: ["From broad capability", "to focused moments."],
+    designSystem: ["One language for", "many AI moments."],
+    results: ["A more approachable", "AI companion."]
+  }
+};
+
 export function getNarrative(project: Project) {
   if (project.slug === "silent-ai") return silentAiNarrative;
+  if (project.slug === "allam") return allamNarrative;
   if (project.slug === "kode-os") return kodeOsNarrative;
   return null;
 }
