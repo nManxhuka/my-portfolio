@@ -5,10 +5,11 @@ export type Feature = {
   problem: string;
   solution: string;
   image: string;
+  details?: string[];
   screenshot?: string;
   secondaryScreenshot?: string;
   layout?: "split" | "centered";
-  presentation?: "laptop" | "floating-card" | "multi-screen" | "editorial" | "devices" | "desktop" | "research" | "persona" | "architecture" | "style-guide" | "allam-journey";
+  presentation?: "laptop" | "floating-card" | "multi-screen" | "editorial" | "devices" | "desktop" | "research" | "persona" | "architecture" | "style-guide" | "allam-journey" | "capability";
   variant: "wide" | "portrait" | "split";
 };
 
@@ -130,9 +131,70 @@ export const allamNarrative: CaseStudyNarrative = {
   }
 };
 
+export const jamorderNarrative: CaseStudyNarrative = {
+  introduction: "JamOrder brings ordering and payment into a single hospitality experience—designed to work across self-service, service teams, pickup, delivery, and hotel room service.",
+  overview: [
+    "JamOrder is Jamatu’s digital ordering and payment platform for hospitality. The public product information describes a modular system for restaurants, hotels, food trucks, and cafés, with options spanning in-house ordering, pickup and delivery, POS-supported service, and hotel room service.",
+    "The experience sits between guests and operations: guests need a quick, understandable way to order and pay, while teams need orders to arrive in the right place with enough context to keep service moving."
+  ],
+  overviewCards: [
+    { title: "What it is", text: "A digital ordering and payment platform for hospitality, designed around multiple service models." },
+    { title: "Who it serves", text: "Guests ordering on their own terms and hospitality teams coordinating service, orders, and payment." },
+    { title: "Why it matters", text: "It connects the guest journey to operational workflows instead of treating ordering as an isolated checkout moment." }
+  ],
+  challenge: [
+    "Hospitality journeys change by context. A guest at a table, a customer collecting an order, a hotel visitor, and a service colleague all need different information and actions—yet the system still has to feel coherent.",
+    "The product design challenge was to reduce friction without losing useful context: make self-service feel immediate, give staff dependable order visibility, and make payment feel like a natural end to each service flow."
+  ],
+  roleCards: ["Product Design", "Service Design", "Ordering Flows", "Payment Experience", "Hospitality Workflows", "Interaction Design", "Design System", "Developer Collaboration"],
+  processSteps: ["Service Research", "Journey Mapping", "Flow Design", "Prototypes", "Usability Review", "Developer Handoff"],
+  processIntro: "The work centred on connecting guest and operational journeys: mapping service contexts, reducing decision points, and shaping reusable patterns across ordering and payment.",
+  features: [
+    { title: "In-house ordering", problem: "At-table ordering must be fast enough for a live service environment while remaining easy to understand for guests.", solution: "The product scope supports ordering and payment at the table, bringing the guest’s selection and checkout journey closer together.", details: ["QR self-ordering", "At-table journey", "Digital payment"], image: "in-house", variant: "split", presentation: "capability" },
+    { title: "Service and POS", problem: "Staff need a dependable way to take orders and handle payment without breaking the rhythm of service.", solution: "JamWaiter extends JamOrder with POS capabilities for order handling and payment, supporting a connected front-of-house workflow.", details: ["Order capture", "Table service", "Payment handling"], image: "service-pos", variant: "wide", presentation: "capability" },
+    { title: "Pickup and delivery", problem: "Pre-order and collection flows need to make the next step obvious for both guests and the team preparing the order.", solution: "Pickup and delivery are treated as service modes within the wider ordering system, rather than separate experiences with their own rules.", details: ["Pre-order", "Collection", "Delivery"], image: "pickup-delivery", variant: "split", presentation: "capability" },
+    { title: "Hotel room service", problem: "Room service needs the same ease of ordering while accounting for the context of a guest staying on property.", solution: "The public JamOrder offering includes room-service ordering and payment as a dedicated hospitality module.", details: ["Room-service context", "Order status", "Payment flow"], image: "room-service", variant: "wide", presentation: "capability" }
+  ],
+  designSystem: "A hospitality platform benefits from a system that can adapt to self-ordering, staff-assisted service, pickup, delivery, and room service without making people relearn the product. The case-study presentation focuses on reusable ordering states, clear actions, status cues, and payment moments—not invented interface screens.",
+  designSystemItems: ["Order states", "Menu hierarchy", "Primary actions", "Payment cues", "Service modes", "Status chips", "Guest context", "Operational patterns"],
+  outcomes: ["Connected the guest ordering journey with service and payment contexts.", "Created a clear product story across in-house, pickup, delivery, and room-service modes.", "Framed reusable interaction patterns for hospitality ordering workflows.", "Kept the case study grounded in JamOrder’s publicly described product offering without using unverified metrics."],
+  headings: { overview: ["Ordering that meets", "hospitality in motion."], challenge: ["One product.", "Many service moments."], role: ["Designing the journey", "around service."], process: ["From service context", "to clear next steps."], designSystem: ["Patterns for every", "service mode."], results: ["A connected foundation", "for hospitality." ] }
+};
+
+export const locumTenensNarrative: CaseStudyNarrative = {
+  introduction: "A healthcare staffing platform concept focused on helping nurses and medics find opportunities through a clearer, more approachable digital journey.",
+  overview: [
+    "The portfolio record identifies Locum Tenens as a healthcare staffing platform connecting nurses and medics with job opportunities. The case study is intentionally framed around that verified scope rather than unverified product functionality.",
+    "Healthcare staffing journeys often bring together opportunity discovery, availability, professional information, scheduling, and communication. The design opportunity is to make those high-consideration decisions easier to understand without reducing the trust the context requires."
+  ],
+  overviewCards: [
+    { title: "What it is", text: "A healthcare staffing platform focused on connecting nurses and medics with job opportunities." },
+    { title: "Who it’s for", text: "Healthcare professionals looking for work opportunities, alongside the organisations coordinating staffing needs." },
+    { title: "Why it matters", text: "Staffing choices are time-sensitive and trust-dependent, so the experience needs to make information easier to evaluate." }
+  ],
+  challenge: [
+    "Healthcare staffing is not a simple browse-and-apply journey. Professionals and organisations need to understand opportunities, availability, requirements, and timing while managing a high level of professional responsibility.",
+    "The design challenge was to create a calm, legible digital experience for a complex coordination problem—using clear hierarchy and progressive disclosure without overstating what the platform automates."
+  ],
+  roleCards: ["Product Design", "UX Strategy", "Information Architecture", "Interaction Design", "Responsive Design", "Design System", "Prototyping", "Developer Collaboration"],
+  processSteps: ["Context Research", "Opportunity Mapping", "Information Architecture", "Flow Design", "Prototypes", "Developer Handoff"],
+  processIntro: "The approach started with the decisions people need to make when evaluating a role, then organised information into focused journeys that can support confidence and clarity.",
+  features: [
+    { title: "Opportunity discovery", problem: "Healthcare work opportunities can be time-sensitive and information-heavy, making it difficult to compare what matters at a glance.", solution: "The design direction prioritised a clear information hierarchy so people can orient themselves before committing to a next step.", details: ["Role context", "Clear hierarchy", "Focused next steps"], image: "opportunity-discovery", variant: "split", presentation: "capability" },
+    { title: "Professional profile", problem: "A professional’s information needs to feel considered and trustworthy without asking them to navigate an overwhelming form experience.", solution: "The product framing treated profile information as a structured, progressive experience—helping people understand what is needed and why.", details: ["Professional context", "Progressive disclosure", "Clear status"], image: "professional-profile", variant: "wide", presentation: "capability" },
+    { title: "Staffing coordination", problem: "Staffing involves multiple people, changing availability, and decisions that need to be easy to revisit.", solution: "The experience was shaped around visible context and clear follow-up actions, so coordination can remain understandable as a journey evolves.", details: ["Availability context", "Follow-up actions", "Shared visibility"], image: "staffing-coordination", variant: "split", presentation: "capability" }
+  ],
+  designSystem: "The visual direction focuses on trust, readability, and consistency: clear hierarchy for information-rich decisions, predictable states, and reusable patterns that can support a responsive healthcare staffing experience. It deliberately avoids claiming specific compliance or credentialing functionality that is not documented for this project.",
+  designSystemItems: ["Information hierarchy", "Profile patterns", "Opportunity cards", "Status states", "Action hierarchy", "Responsive layout", "Accessible contrast", "Spacing tokens"],
+  outcomes: ["Created a clear portfolio narrative for a healthcare staffing platform focused on opportunity discovery.", "Established a user-centred framing for high-consideration healthcare work journeys.", "Defined reusable experience principles around clarity, context, and next actions.", "Kept the case study limited to verified project scope and avoided unsupported operational claims or metrics."],
+  headings: { overview: ["Making opportunity", "easier to navigate."], challenge: ["High-consideration work", "needs clear context."], role: ["Designing for confidence", "and clarity."], process: ["From complex context", "to focused journeys."], designSystem: ["A dependable language", "for important decisions."], results: ["A clearer direction", "for staffing journeys." ] }
+};
+
 export function getNarrative(project: Project) {
   if (project.slug === "silent-ai") return silentAiNarrative;
   if (project.slug === "allam") return allamNarrative;
   if (project.slug === "kode-os") return kodeOsNarrative;
+  if (project.slug === "jamorder") return jamorderNarrative;
+  if (project.slug === "locum-tenens") return locumTenensNarrative;
   return null;
 }
